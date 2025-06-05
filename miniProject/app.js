@@ -8,6 +8,7 @@ const showMenu=()=>{
   console.log("\n1: Add a Task");
   console.log("2: View all tasks");
   console.log("3: Exit");
+  console.log("4:Delete Task");
 
   rl.question("Choose an option:",handleInput);
  
@@ -32,7 +33,21 @@ const handleInput=(option)=>{
   else if(option==="3"){
     console.log("Goodbye");
   rl.close();
-  }else{
+  }
+  else if(option ==="4"){
+    console.log("Delete a task");
+    rl.question("Enter the task you want to delete:",(task)=>{
+      todos.forEach((value,index)=>{
+        if(value===task){
+          todos.splice(index,1);
+          console.log("Task deleted");
+          showMenu();
+        }
+      })
+    })
+
+  }
+  else{
     console.log("Invalid Option please select Valid Option");
     showMenu();
     
