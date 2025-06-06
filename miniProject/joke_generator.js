@@ -1,5 +1,4 @@
 
-// https://api.api-ninjas.com/v1/jokes
 
 
 import https from  'https';
