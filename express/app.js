@@ -101,4 +101,20 @@ app.get("/",(req,res)=>{
 //  const Port =3000;
 // const Port=process.env.Port|| 3001;
 
+
+// error handle page
+
+ app.use((req,res)=>{
+  // return res.status(404).send("page not found");
+
+  return res.status(404).sendFile(path.join(import.meta.dirname,"views","404.html"));
+
+
+
+ });
+
+
+
+
+
  app.listen(Port, ()=>{console.log(`server is running on port number ${Port} 🤣`)})
