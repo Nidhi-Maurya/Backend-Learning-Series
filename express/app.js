@@ -26,6 +26,21 @@ console.log(import.meta.filename);
  const staticPath=path.join(import.meta.dirname,"public");
  app.use(express.static(staticPath));
 
+// query parameter page
+
+// app.get("/product",(req,res)=>{
+//   console.log(req.query);
+//   res.send (`<h1>User search  for product ${req.query.search}  page</h1>`)
+// })
+
+
+
+
+
+
+
+
+
  app.get("/profile/:username",(req,res)=>{
   console.log(req.params);
   res.send(`<h1>Helo my name is ${req.params.username} </h1>`)
@@ -35,6 +50,8 @@ console.log(import.meta.filename);
   console.log(req.params);
   res.send(`<h1> Article ${req.params.slug} by ${req.params.username} </h1>`)
  })
+
+
 
 
 
