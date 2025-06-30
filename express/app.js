@@ -5,9 +5,36 @@ import path from "path";
 const app= express();
 
 
+
+
+// data get krne ke taritka
+
+// const response= await fetch("https://api.github.com/users/learn-academy-initiative/repos");
+// const json=await response.json();
+// console.log(staticPath);
+
+console.log(import.meta.dirname);
+console.log(import.meta.filename);
+
+
+
+
+
 //ye use hua h pure html and css ke file ko send krne ke liye
 
-app.use(express.static("public"));
+// app.use(express.static("public"));
+ const staticPath=path.join(import.meta.dirname,"public");
+ app.use(express.static(staticPath));
+
+ app.get("/profile/:username",(req,res)=>{
+  console.log(req.params);
+  res.send(`<h1>Helo my name is ${req.params.username} </h1>`)
+ })
+
+ app.get("/profile/:username/article/:slug",(req,res)=>{
+  console.log(req.params);
+  res.send(`<h1> Article ${req.params.slug} by ${req.params.username} </h1>`)
+ })
 
 
 
