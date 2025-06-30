@@ -25,6 +25,23 @@ console.log(import.meta.filename);
 // app.use(express.static("public"));
  const staticPath=path.join(import.meta.dirname,"public");
  app.use(express.static(staticPath));
+ app.use(express.urlencoded({extended:true}));
+
+// app.get("/contact",(req,res)=>{
+//   console.log(req.query);
+//   res.redirect("/");
+// });
+
+app.post("/contact",(req,res)=>{
+  console.log(req.body);
+  res.redirect("/");
+});
+
+
+
+
+
+
 
 // query parameter page
 
@@ -41,15 +58,15 @@ console.log(import.meta.filename);
 
 
 
- app.get("/profile/:username",(req,res)=>{
-  console.log(req.params);
-  res.send(`<h1>Helo my name is ${req.params.username} </h1>`)
- })
+//  app.get("/profile/:username",(req,res)=>{
+//   console.log(req.params);
+//   res.send(`<h1>Helo my name is ${req.params.username} </h1>`)
+//  })
 
- app.get("/profile/:username/article/:slug",(req,res)=>{
-  console.log(req.params);
-  res.send(`<h1> Article ${req.params.slug} by ${req.params.username} </h1>`)
- })
+//  app.get("/profile/:username/article/:slug",(req,res)=>{
+//   console.log(req.params);
+//   res.send(`<h1> Article ${req.params.slug} by ${req.params.username} </h1>`)
+//  })
 
 
 
