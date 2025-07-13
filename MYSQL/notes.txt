@@ -17,3 +17,39 @@ Introduction :
 
   #PRIMARY KEY is a special column or combinations od column  that uniquely id in table.
   #FOREIGN KEY  is  column that creates a relationship between two tables , links tables to a row in another table.
+
+
+  # Commands OF MY SQL #
+
+
+
+               # creating databse in My SQL
+   1. CREATE DATABASE .....Databaseanem
+     # Creating table in database
+   2. CREATE TABLE (
+      id,
+      name, roll no....
+   )
+
+   # Inserting data in table
+   3. INSERT INTO
+     ex. insert into tablename (id,name,roll no) values (1,'maurya',23);
+
+
+
+   # Deleting the data into the table;
+   4. DROP DATABASE
+
+   # read data from created table
+     
+     6. Select * from tablrnmae;
+
+     # UPdates table 
+     syntax --  UPDATE table_name set column 1  = value1,  column 2= value2
+                 where condition;
+
+
+
+    7.  # delete from table....
+    
+     Delete from table_name where condition;
