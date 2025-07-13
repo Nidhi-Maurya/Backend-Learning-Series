@@ -1,0 +1,19 @@
+Introduction :
+
+   *.  MySQL is a widely used open -souce relational database management  system(RDBMS)
+  *. It stores data in tables with rows representing individuals recordes and columns representing data attributwa.
+  3. MySQL uses Structureed Query Languages(SQL) for managing and manipulating data.
+  4. It is known  for its reliability , performance nd ease of use ,  suitable for both small and large databases.
+  5.MySQL is cross-platform , meaning it workd on different operating systems such as window ,LInus, and macOS.
+
+  ## KEY CONCEPTS ##
+
+  1. A table in  My SQL is a collection of data organized in rows and colums. it is simillar toa  spreadsheet where each rows  is a record and each column holds data attributes of that records.
+
+  2. A row (also called a record or tupple) represents a single, data entry in a tbale . Each column has a data typed , such as integer, string, date, etc. and each column represents an attributes of the data stored in thr table.
+  3. Each row in a table contains values for each of the columns , which together makes up to full records.
+  4. Each #row in a tablr contains values for each of the columnx , which together make  upto full records.
+  5. Tables in MySQL are defined by a schema that specifies the names and types  with  any contains like primary key or unique  values.
+
+  #PRIMARY KEY is a special column or combinations od column  that uniquely id in table.
+  #FOREIGN KEY  is  column that creates a relationship between two tables , links tables to a row in another table.
