@@ -72,7 +72,7 @@ const [rows] = await db.execute(`select * from WORKER`);
 //     select * from WORKER where username="rjnish";
 //     `);
 
-    console.log(rows);
+     console.log(rows);
 
 
 // ! update 
