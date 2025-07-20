@@ -2,11 +2,24 @@
   "name": "drizzle_mysql",
   "version": "1.0.0",
   "main": "index.js",
+  "type":"module",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "dev": "node --env-file .env --watch app.js",
+    "start": "node --env-file .env  app.js",
+    "db:generate":"drizzle-kit generate",
+    "db:migrate":"drizzle-kit migrate",
+    "db:studio":"drizzle-kit studio"
+
   },
   "keywords": [],
   "author": "",
   "license": "ISC",
-  "description": ""
+  "description": "",
+  "dependencies": {
+    "drizzle-orm": "^0.44.3",
+    "mysql2": "^3.14.2"
+  },
+  "devDependencies": {
+    "drizzle-kit": "^0.31.4"
+  }
 }
