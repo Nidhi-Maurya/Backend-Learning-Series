@@ -91,16 +91,6 @@ console.log(deleteUser);
    };
 
 
-
-
-
-
-
-
-
-
-
-
 main()
   .catch((e) => {
     console.error(e);
