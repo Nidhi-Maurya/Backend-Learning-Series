@@ -152,8 +152,9 @@ const fetchShortendURL=async()=>{
           // Optional: append to list
           const list = document.getElementById('shortened-urls');
           const li = document.createElement('li');
+          const truncatedURL= url.length >=30 ?`${url.slice(0,30)}...`:url;
           const shortenedURL = `${window.location.origin}/${result.shortCode}`;
-          li.innerHTML = `<a href="${shortenedURL}" target="_blank">${shortenedURL}</a>`;
+          li.innerHTML = `<a href="${shortenedURL}" target="_blank">${shortenedURL}</a> - ${truncatedURL}`;
           list.appendChild(li);
 
           // Clear form
