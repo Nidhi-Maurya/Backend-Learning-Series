@@ -1,0 +1,103 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="style.css">
+  <title>URL Shortener</title>
+</head>
+<body>
+  <div class="container">
+    <h1>URL Shortener</h1>
+    <form action="/" method="POST">
+      <div>
+        <label for="url">Enter URL:</label>
+        <input type="url" id="url" name="url" required placeholder="Enter URL">
+      </div>
+      <div class="shortCode">
+        <label for="shortcode">Short Code:</label>
+        <input type="text" id="shortcode" name="shortcode" placeholder="Optional">
+      </div>
+      <button class="btn" type="submit">Shorten</button>
+    </form>
+
+    <h2>Shortened URL</h2>
+    <ul>
+      {{shortened_urls}}
+    </ul>
+  </div>
+
+  <!-- <script>
+
+const fetchShortendURL=async()=>{
+ const response =await fetch("/links");
+ const links=await response.json();
+ console.log("links:",links);
+
+ const list=document.getElementById('shortened-urls');
+ list.innerHTML="";
+ for(const [shortCode,url] of Object.entries(links)){
+  console.log(`${shortCode}: ${url}`);
+  const li=document.createElement('li');
+  li.innerHTML=`<a href="${shortCode}" target="_blank">${window.location.origin}/${shortCode}</a> - ${url}`;
+  list.appendChild(li);
+    
+}
+}
+
+    document.getElementById('shorten-form').addEventListener('submit', async (event) => {
+      event.preventDefault();
+
+      const formData = new FormData(event.target);
+      const url = formData.get('url');
+      const shortCode = formData.get('shortcode').trim(); // Trim extra spaces
+
+      console.log("Submitted URL:", url);
+      console.log("Submitted ShortCode:", shortCode);
+
+      try {
+        const response = await fetch("/shorten", {
+          method: "POST",
+          headers: {
+            'Content-Type': 'application/json'
+          },
+          body: JSON.stringify({
+            url,
+            shortcode: shortCode || undefined // only send if non-empty
+          })
+        });
+
+        if (response.ok) {
+          fetchShortendURL();
+          const result = await response.json();
+          alert("URL shortened successfully!");
+          event.target.reset(); // Reset form
+
+          // Optional: append to list
+          const list = document.getElementById('shortened-urls');
+          const li = document.createElement('li');
+          const truncatedURL= url.length >=30 ?`${url.slice(0,30)}...`:url;
+          const shortenedURL = `${window.location.origin}/${result.shortCode}`;
+          li.innerHTML = `<a href="${shortenedURL}" target="_blank">${shortenedURL}</a> - ${truncatedURL}`;
+          list.appendChild(li);
+
+          // Clear form
+          event.target.reset();
+        } else {
+          const errorMessage = await response.text();
+          alert(errorMessage);
+        }
+
+      } catch (error) {
+        console.error("Error:", error);
+        alert("Something went wrong!");
+      }
+    });
+
+
+
+fetchShortendURL();
+  </script> -->
+</body>
+</html>
