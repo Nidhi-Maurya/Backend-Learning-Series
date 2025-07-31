@@ -1,5 +1,5 @@
 import crypto from 'crypto';
-import { loadLinks, saveLinks } from '../models/shortner.models.js';
+import { loadLinks, savelinks,getLinkByShortCode } from '../models/shortner.models.js';
  import path from 'path';
 
 
@@ -27,11 +27,16 @@ export const getShortnerPage =
 export const redirectToShortLink =  async (req, res) => {
   try {
     const { shortCode } = req.params;
-    const links = await loadLinks();
-    if (!links[shortCode]) {
+    // const links = await loadLinks();
+    console.log(links);
+    
+
+const links=await getLinkByShortCode(shortCode);
+
+    if (!links) {
       return res.status(404).send('Short URL not found');
     }
-    return res.redirect(links[shortCode]);
+    return res.redirect(links.url);
   } catch (error) {
     console.error(error);
     return res.status(500).send('Internal Server Error');
@@ -49,8 +54,11 @@ export const postURLShortner=  async (req, res) => {
       return res.status(400).send('Short code already exists, please choose another');
     }
 
-    links[finalShortCode] = url;
-    await saveLinks(links);
+    // links[finalShortCode] = url;
+    // await saveLinks(links);
+
+      await savelinks({url,shortCode:finalShortCode});
+
     return res.redirect('/');
   } catch (error) {
     console.error(error);
