@@ -129,6 +129,14 @@ const saveLinks = async (links) => {
   await writeFile(DATA_FILE, JSON.stringify(links, null, 2));
 };
 
+router.get("/report",(req,res)=>{
+  res.render("report",{name:"maurya"});
+})
+
+
+
+
+
 router.get('/', async (req, res) => {
   try {
     const file = await readFile(path.join(__dirname, '../views', 'index.html'), 'utf-8');
